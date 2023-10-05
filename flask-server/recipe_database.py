@@ -19,8 +19,8 @@ class RecipeDatabase:
         for document in self.collection.find():
             print(document)
 
-    def findRecipe(self):
-        recipe =  self.collection.find_one()
+    def findRecipe(self, recipe_title):
+        recipe =  self.collection.find_one({"title": recipe_title})
         # for recipe in self.collection.find():         
         recipe["id"] = recipe["_id"]
         del recipe["_id"]
